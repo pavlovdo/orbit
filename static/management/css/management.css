@@ -1,0 +1,13 @@
+.management {
+  background-image: url(../img/mig-15b.jpg);
+  height: 500px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.management .container {
+  position: relative;
+  top:100px;
+}
+
+.configuration_form {
+}

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main %}
+<div class="jumbotron">
+    <div class="container">
+        <h1>ORBIT (Open Russian Billing for IT)</h1>
+        <p>Manage and audit for all your infrastructure</p>
+        <a href="#">Learn More</a>
+    </div>
+</div>
+<div class="learn-more">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h3><a href="management">Management</a></h3>
+                <p>Discover and manage your network devices, servers, hypervisors, PBXs and PCs</p>
+                <h3><a href="monitoring">Monitoring</a></h3>
+            </div>
+            <div class="col-md-4">
+                <h3><a href="reports">Reports</a></h3>
+                <p>Get the reports about your network devices, servers, hypervisors, PBXs and PCs</p>
+                <h3><a href="requests">Requests</a></h3>
+            </div>
+            <div class="col-md-4">
+            <h3><a href="schemes">Schemes</a></h3>
+            <p>Get the scheme of your LAN, discover about connecting any PC to network</p>
+                <h3><a href="warehouse">Warehouse</a></h3>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
