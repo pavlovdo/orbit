@@ -1,6 +1,7 @@
 from django.db import models
 
 # Create your models here.
+<<<<<<< HEAD
 
 
 class NetworkDevice(models.Model):
@@ -54,3 +55,5 @@ class Computer(NetworkDevice):
     motherboard =models.CharField(max_length=50)
     class Meta:
         db_table = 'computers'
+=======
+>>>>>>> origin/master
