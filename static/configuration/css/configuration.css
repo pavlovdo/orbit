@@ -1,12 +1,10 @@
-.itservice {
+.configuration {
   height: 100px;
   background-repeat: no-repeat;
   background-size: cover;
 }
-.management .container {
+
+.configuration container {
   position: relative;
   top:100px;
-}
-
-.configuration_form {
 }
