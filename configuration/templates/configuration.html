@@ -28,52 +28,41 @@
     <div class="row placeholders">
         <div class="col-xs-6 col-sm-3 placeholder">
             <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
-            <h4>Label</h4>
-            <span class="text-muted">Something else</span>
+            <h4>Network Configuration:</h4>
+            {% for network in networks %}
+                <h4>Network: >{{ network.network_ip_address }}</h4>
+            {% endfor %}
+
+            <span class="text-muted">Add the network</span>
+
+            <form role="form" action="/configuration/addnetwork/{{ network.id }}/" method="post">
+                <div class="form-group">
+                    <label for="Network Name">Network Name (Name of VLAN if it is exist)</label><input type="text" class="form-control" id="Network Name">
+                </div>
+                <div class="form-group">
+                    <label for="Network IP Address">Network IP Address (in CIDR notation)</label><input type="text" class="form-control" id="Network IP Address">
+                </div>
+                <button type="submit" class="btn btn-default">Add the network</button>
+            </form>
         </div>
+
         <div class="col-xs-6 col-sm-3 placeholder">
             <img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
-            <h4>Label</h4>
-            <span class="text-muted">Something else</span>
+            <h4>Virtual Infrastructure Configuration</h4>
+            <span class="text-muted">Virtual Infrastructure Configuration</span>
         </div>
         <div class="col-xs-6 col-sm-3 placeholder">
             <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
-            <h4>Label</h4>
-            <span class="text-muted">Something else</span>
+            <h4>Server Configuration</h4>
+            <span class="text-muted">Server Configuration</span>
         </div>
         <div class="col-xs-6 col-sm-3 placeholder">
             <img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
-            <h4>Label</h4>
-            <span class="text-muted">Something else</span>
+            <h4>PC Configuration</h4>
+            <span class="text-muted">PC Configuration</span>
         </div>
     </div>
 
     <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
     <script src="../static/holder/holder.js"></script>
-
-
-<form role="form">
-	<div class="form-group">
-		 <label for="exampleInputEmail1">Email address</label><input type="email" class="form-control" id="exampleInputEmail1">
-	</div>
-	<div class="form-group">
-		 <label for="exampleInputPassword1">Password</label><input type="password" class="form-control" id="exampleInputPassword1">
-	</div>
-	<div class="form-group">
-		 <label for="exampleInputFile">File input</label><input type="file" id="exampleInputFile">
-		<p class="help-block">
-			Example block-level help text here.
-		</p>
-	</div>
-	<div class="checkbox">
-		 <label><input type="checkbox"> Check me out</label>
-	</div> <button type="submit" class="btn btn-default">Submit</button>
-</form>
-<div class="configuration_form">
-    <form action="/configuration/{{ article.id }}/" method="post">
-        {% csrf_token %}
-        {{ form }}
-        <input type="submit" class="button" value="Сохранить">
-    </form>
-</div>
 {% endblock %}
