@@ -8,3 +8,10 @@
   position: relative;
   top:100px;
 }
+
+.configuration p {
+  font-size: 15px;
+  margin-bottom: 13px;
+  position: relative;
+  right:100px;
+}

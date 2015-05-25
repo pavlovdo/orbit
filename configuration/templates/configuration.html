@@ -7,26 +7,50 @@
 
 {% block main %}
     <div class="container-fluid">
-      <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
-          <ul class="nav nav-sidebar">
-              <li><a href="#">Overview <span class="sr-only">(current)</span></a></li>
-              <li class="active"><a href="/configuration">Configuration</a></li>
-              <li><a href="/monitoring">Monitoring</a></li>
-              <li><a href="/reports">Reports</a></li>
-              <li><a href="/requests">Requests</a></li>
-              <li><a href="/schemas">Schemas</a></li>
-              <li><a href="/warehouse">Warehouse</a></li>
-          </ul>
+        <div class="row">
+            <div class="col-sm-3 col-md-2 sidebar">
+                <ul class="nav nav-sidebar">
+                    <li><a href="/">Overview <span class="sr-only">(current)</span></a></li>
+                    <li class="active"><a href="/configuration">Configuration</a></li>
+                    <li><a href="/monitoring">Monitoring</a></li>
+                    <li><a href="/reports">Reports</a></li>
+                    <li><a href="/requests">Requests</a></li>
+                    <li><a href="/schemas">Schemas</a></li>
+                    <li><a href="/warehouse">Warehouse</a></li>
+                </ul>
+            </div>
         </div>
-      </div>
     </div>
 
-    <div class="configuration">
-        <div class="container">
-            <h1>Configuration</h1>
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+    <h1 class="page-header">Configuration</h1>
+
+    <div class="row placeholders">
+        <div class="col-xs-6 col-sm-3 placeholder">
+            <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
+            <h4>Label</h4>
+            <span class="text-muted">Something else</span>
+        </div>
+        <div class="col-xs-6 col-sm-3 placeholder">
+            <img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
+            <h4>Label</h4>
+            <span class="text-muted">Something else</span>
+        </div>
+        <div class="col-xs-6 col-sm-3 placeholder">
+            <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
+            <h4>Label</h4>
+            <span class="text-muted">Something else</span>
+        </div>
+        <div class="col-xs-6 col-sm-3 placeholder">
+            <img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
+            <h4>Label</h4>
+            <span class="text-muted">Something else</span>
         </div>
     </div>
+
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="../static/holder/holder.js"></script>
+
 
 <form role="form">
 	<div class="form-group">
