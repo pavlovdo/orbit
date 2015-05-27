@@ -58,7 +58,7 @@ class Computer(NetworkDevice):
 
 class Network(models.Model):
     name = models.CharField(max_length=50, verbose_name="Network Name")
-    ip = models.GenericIPAddressField(protocol='IPv4',verbose_name="Network IP Address")
+    ip = models.GenericIPAddressField(protocol='IPv4', verbose_name="Network IP Address")
     netmask = models.SmallIntegerField()
     class Meta:
         db_table = 'networks'

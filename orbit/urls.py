@@ -19,6 +19,5 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^configuration/', include('configuration.urls')),
-    url(r'^management/', include('management.urls')),
     url(r'^$', 'orbit.views.home', name='home'),
 ]
