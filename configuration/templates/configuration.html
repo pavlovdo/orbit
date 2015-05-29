@@ -39,22 +39,21 @@
             <button type="submit" class="btn btn-default form-group">Add the network</button>
         </form>
 
-    <hr>
+        <hr>
 
-            {% if networks %}
-                <ul>
-                    {% for network in networks %}
-                        <li>
-                            <p>Network Name: {{ network.name }}</p>
-                            </p>Network IP Address: {{ network.ip }}</p>
-                        </li>
-                    {% endfor %}
-                </ul>
-            {% else %}
-                <p>No networks are configured</p>
-            {% endif %}
-
-        </div>
+        {% if networks %}
+            <ul>
+                {% for network in networks %}
+                    <li>
+                        <p>Network Name: {{ network.name }}</p>
+                        </p>Network IP Address: {{ network.ip }}</p>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No networks are configured</p>
+        {% endif %}
+    </div>
 
         <div class="row placeholders">
         <div class="col-xs-6 col-sm-3 placeholder">
