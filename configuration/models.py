@@ -10,6 +10,7 @@ class NetworkDevice(models.Model):
         abstract = True
         db_table = 'network_devices'
 
+
 class NetworkActiveDevice(NetworkDevice):
     model = models.CharField(max_length=30)
     sw_version = models.CharField(max_length=30)
