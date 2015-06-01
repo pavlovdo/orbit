@@ -7,7 +7,14 @@
             <div class="col-sm-3 col-md-2 sidebar">
                 <ul class="nav nav-sidebar">
                     <li><a href="/">Overview <span class="sr-only">(current)</span></a></li>
-                    <li class="active"><a href="/configuration">Configuration</a></li>
+                    <li class="active"><a href="/configuration" data-toggle="collapse" data-target="#sub1">Configuration<b class="caret"></b></a>
+                        <ul class="nav collapse" id="sub1">
+                            <li><a href="/configuration/networks">Network Configuration</a></li>
+                            <li><a href="/configuration/servers">Server Configuration</a></li>
+                            <li><a href="/configuration/computers">PC Configuration</a></li>
+                            <li><a href="/configuration/vinfras">Virtual Infrastructure Configuration</a></li>
+                        </ul>
+                    </li>
                     <li><a href="/monitoring">Monitoring</a></li>
                     <li><a href="/reports">Reports</a></li>
                     <li><a href="/requests">Requests</a></li>
@@ -72,6 +79,12 @@
             <span class="text-muted">PC Configuration</span>
         </div>
     </div>
+
+              <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="/static/bootstrap/dist/js/bootstrap.min.js"></script>
 
     <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
     <script src="/static/holder/holder.js"></script>
