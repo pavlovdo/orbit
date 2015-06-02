@@ -12,16 +12,16 @@
     <title>Orbit The IT Infrastructure Management System</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../static/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="../static/main/css/dashboard.css" rel="stylesheet">
+    <link href="/static/main/css/dashboard.css" rel="stylesheet">
 
               <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="../static/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/static/bootstrap/dist/js/bootstrap.min.js"></script>
 
 </head>
 <body>
@@ -53,6 +53,28 @@
         </div>
       </div>
     </nav>
-{% block main %}
-{% endblock %}
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-3 col-md-2 sidebar collapse">
+                <ul class="nav nav-sidebar">
+                    <li><a href="/">Overview <span class="sr-only">(current)</span></a></li>
+                    <li><a href="/configuration">Configuration</a></li>
+                    <li><a href="/monitoring">Monitoring</a></li>
+                    <li class="active"><a href="#" data-toggle="collapse" data-target="#sub1">Reports<b class="caret"></b></a>
+                        <ul class="nav collapse" id="sub1">
+                            <li><a href="/configuration/networks">Network Configuration</a></li>
+                            <li><a href="/configuration/servers">Server Configuration</a></li>
+                            <li><a href="/configuration/computers">PC Configuration</a></li>
+                            <li><a href="/configuration/vinfras">Virtual Infrastructure Configuration</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/requests">Requests</a></li>
+                    <li><a href="/schemas">Schemas</a></li>
+                    <li><a href="/warehouse">Warehouse</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </body>
+</html>
