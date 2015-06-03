@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<a href="#" onclick="alert(1); return false">CLCK</a>
+
+<script>
+	a = document.getElementById('the_a');
+	a.addEventListener('click', function(ev)) {
+		alert('clicked on ' + ev.target);
+		alert('now on ' + this);	// this - указатель на элемент, на котором вызван обработчик события
+		alert('x ' + ev.clientX);
+		alert('y ' + ev.clientY);
+		ev.stopPropagation();	// не всплывать
+		ev.presentDafault();	// без умолчания
+	});
+</script>
+
+<a href="javascript:window.open('http://ya.ru')">CLICK</a>
+<a href="#" onclick="alert(1)">PUSH</a>
+<div onmouseover="$(this).fadeOut()"><p>Test</p></div>
+</body>
+</html>
