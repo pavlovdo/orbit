@@ -2,16 +2,59 @@ from django.db import models
 
 # Create your models here.
 
-class NetworkDevice(models.Model):
-    name = models.CharField(max_length=50)
+
+class MACAddress(models.Model):
     mac = models.CharField(max_length=20)
     ip = models.GenericIPAddressField(protocol='IPv4')
+    uplink_interface = models.ForeignKey('NetworkInterface')
     class Meta:
-        abstract = True
-        db_table = 'network_devices'
+        db_table = 'mac_adrresses'
 
 
-class NetworkActiveDevice(NetworkDevice):
+class EthCard(MACAddress):
+    model = models.CharField(max_length=50)
+    manufacturer = models.CharField(max_length=30)
+    pc = models.ForeignKey('PC')
+    class Meta:
+        db_table = 'eth_cards'
+
+
+class NetworkInterface(models.Model):
+    network_device = models.ForeignKey('NetworkActiveDevice')
+    description = models.CharField(max_length=100)
+    is_switchport = models.BooleanField(default=True)
+    is_access = models.BooleanField(default=True)
+    is_port_security = models.BooleanField(default=False)
+    is_negotiate = models.BooleanField(default=True)
+    is_bpduguard = models.BooleanField(default=False)
+    is_bpdufilter = models.BooleanField(default=False)
+    ps_max = models.PositiveSmallIntegerField(default=1)
+    access_vlan = models.ForeignKey('Vlan', related_name='access_vlan')
+    voice_vlan = models.ForeignKey('Vlan', related_name='voice_vlan')
+    class Meta:
+        db_table = 'network_interfaces'
+
+
+class PC(models.Model):
+    name = models.CharField(max_length=20)
+    cpu = models.CharField(max_length=50)
+    motherboard = models.CharField(max_length=50)
+    ram_size = models.PositiveSmallIntegerField()
+    hdd_size = models.PositiveSmallIntegerField()
+    videocard = models.CharField(max_length=50)
+    class Meta:
+        db_table = 'personal_computers'
+
+
+class Phone(MACAddress):
+    name = models.CharField(max_length=20)
+    model = models.CharField(max_length=50)
+    manufacturer = models.CharField(max_length=30)
+    class Meta:
+        db_table = 'phones'
+
+
+class NetworkActiveDevice(models.Model):
     model = models.CharField(max_length=30)
     sw_version = models.CharField(max_length=30)
     sw_image = models.CharField(max_length=50)
@@ -26,35 +69,14 @@ class NetworkActiveDevice(NetworkDevice):
         db_table = 'network_active_devices'
 
 
-class NetworkInterface(models.Model):
-    network_device = models.ForeignKey('NetworkActiveDevice')
-    description = models.CharField(max_length=100)
-    is_switchport = models.BooleanField(default=True)
-    is_access = models.BooleanField(default=True)
-    access_vlan = models.PositiveSmallIntegerField()
-    voice_vlan = models.PositiveSmallIntegerField()
-    class Meta:
-        db_table = 'network_interfaces'
-
-
 class Vlan(models.Model):
     name = models.CharField(max_length=50)
     vlan_id = models.PositiveSmallIntegerField()
+    interfaces = models.ManyToManyField(NetworkInterface)
     class Meta:
         db_table = 'vlans'
     def __unicode__(self):
         return self.name
-
-
-class Computer(NetworkDevice):
-    network_interface = models.ForeignKey('NetworkInterface')
-    cpu = models.CharField(max_length=50)
-    ram_size = models.PositiveSmallIntegerField()
-    hdd_model = models.CharField(max_length=50)
-    hdd_size = models.PositiveSmallIntegerField()
-    motherboard =models.CharField(max_length=50)
-    class Meta:
-        db_table = 'computers'
 
 
 class Network(models.Model):

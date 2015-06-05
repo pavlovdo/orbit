@@ -18,22 +18,9 @@ except:
     print "Check the configuration file " + orbconffile
     exit(1)
 
-confpcsel = ("SELECT distinct"
-             " CS.Name0 as 'Computer Name',"
-             " CS.Manufacturer0 as 'Manufacturer Name',"
-             " CS.Model0 as 'Model Name',"
-             " CS.SystemType0 as 'System Type',"
-             " REPLACE(CS.UserName0,'FORUM\','') as 'User',"
-             " BIOS.Manufacturer0 as 'Bios Manufacturer',"
-             " BIOS.Name0 as 'Bios Name',"
-             " SE.SerialNumber0 as 'System Enclosure SN',"
-             " OS.Caption0 as 'OS',"
-             " RAM.TotalPhysicalMemory0/1000/1000 as 'Total Memory',"
-             " sum(isnull(LDisk.Size0,'0'))/1024 as 'Hardrive Size',"
-             " CPU.Name0 as 'CPU Name',"
-             " CPU.NormSpeed0 as 'CPU Speed',"
-             " CPU.SocketDesignation0 as 'CPU Socket',"
-             " VC.Name0 as 'Video Controller Name',"
+confpcsel = ("SELECT distinct CS.Name0, CS.Manufacturer0, CS.Model0, CS.SystemType0, REPLACE(CS.UserName0,'FORUM\',''),"
+             " BIOS.Manufacturer0, BIOS.Name0, SE.SerialNumber0, OS.Caption0, RAM.TotalPhysicalMemory0/1000/1000,"
+             " sum(isnull(LDisk.Size0,'0'))/1024, CPU.Name0, CPU.NormSpeed0, CPU.SocketDesignation0, VC.Name0,"
              " VC.VideoProcessor0 as 'Video Processor Name',"
              " VC.VideoModeDescription0 as 'Current Display Resolution',"
              " 'Production' as 'Deployment State',"
@@ -80,7 +67,10 @@ except pymssql.OperationalError as e:
 
 dbcursor = dbconn.cursor()
 
-print "OK"
+dbcursor.execute(confpcsel)
+rows = dbcursor.fetchone()
+
+print rows
 
 dbcursor.close()
 dbconn.close()
